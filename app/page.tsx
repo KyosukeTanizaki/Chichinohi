@@ -21,9 +21,12 @@ export default function Home() {
     father_job: '',
   })
 
+  const [errorMsg, setErrorMsg] = useState('')
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
+    setErrorMsg('')
     try {
       const res = await fetch('/api/sessions', {
         method: 'POST',
@@ -33,13 +36,25 @@ export default function Home() {
           father_birth_year: form.father_birth_year ? parseInt(form.father_birth_year) : null,
         }),
       })
-      const data = await res.json()
+      const text = await res.text()
+      if (!text) {
+        setErrorMsg('サーバーエラーが発生しました。環境変数の設定を確認してください。')
+        return
+      }
+      const data = JSON.parse(text)
+      if (!res.ok) {
+        setErrorMsg(data.error || 'エラーが発生しました。')
+        return
+      }
       if (data.session) {
         setInviteToken(data.session.invite_token)
         setSessionId(data.session.id)
         setFatherName(data.session.father_name)
         setStep('done')
       }
+    } catch (err) {
+      setErrorMsg('通信エラーが発生しました。')
+      console.error(err)
     } finally {
       setLoading(false)
     }
@@ -143,6 +158,12 @@ export default function Home() {
                   className="border-stone-200"
                 />
               </div>
+
+              {errorMsg && (
+                <p className="text-xs text-red-500 bg-red-50 border border-red-100 rounded p-2">
+                  {errorMsg}
+                </p>
+              )}
 
               <Button
                 type="submit"
