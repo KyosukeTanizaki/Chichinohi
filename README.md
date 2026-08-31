@@ -1,36 +1,17 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Chichinohi（父の日）
+父の日を、贈り物をする日から、ことばを届け合う日へ。
 
-## Getting Started
+父の日までの10日間、AIが父と子それぞれに毎日1問だけ質問を届ける Web アプリ。 互いの回答は当日まで見えず、父の日に「父から子へ」「子から父へ」2つの読み物になって同時に開封される。
 
-First, run the development server:
+### なぜ作ったか
+父の日の課題は「何を贈ればいいか分からない」ことではなく、言葉にできなかった感謝が父にも子にも積み残されていることだと考えた。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 体験の流れ
+リンクを作る（10日前） — 子が父の基本情報を入力すると、父用・子用の招待リンクが2本発行される。アプリのインストールは不要。
+毎日1問（10日間） — リンクを開くだけ。AIが前回の回答を読んで、次の質問をその人に合わせて生成する。
+待つ — 父の回答は子に、子の回答は父に、当日まで届かない。
+父の日に開封 — 4章構成の読み物と相手への手紙が自動生成され、互いの言葉が同時に届く。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 学んだこと
+大まかな課題に対して、何を課題とするか・それに対する企画をどうするか・実装をどうするかなど、顧客のことを考えてwebアプリを作る難しさを学んだ。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
